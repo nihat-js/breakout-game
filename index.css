@@ -18,9 +18,10 @@
   width: 40px;
   height: 40px;
   background-color: blueviolet;
+  left : 100px;
   bottom:  100px;
   position: absolute;
-  left : 100px;
+
   border-radius: 50%;
 
 }

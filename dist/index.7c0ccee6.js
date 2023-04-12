@@ -1,6 +1,6 @@
 const gameDiv = document.querySelector(".game");
-const random = (max, min = 0)=>min + Math.floor(Math.random() * max);
 const ball = document.querySelector(".ball");
+const random = (max, min = 0)=>min + Math.floor(Math.random() * max);
 const { log  } = console;
 const me = document.querySelector(".me");
 function getRight(el) {
@@ -8,6 +8,9 @@ function getRight(el) {
 }
 function getBottom(el) {
     return el.top + el.height;
+}
+function updateElement(el, obj) {
+    el.style.cssText = `  width :${obj.width}px ; height :${obj.height}px ; left : ${obj.left}px ; top :     ${obj.top}px  `;
 }
 const Ball = {
     width: 40,
@@ -22,10 +25,7 @@ const Ball = {
     },
     speed: 3,
     movingX: 3,
-    movingY: 3,
-    updateElement: function() {
-        document.querySelector(".ball").style.left = this.left + "px", document.querySelector(".ball").style.top = this.top + "px";
-    }
+    movingY: 3
 };
 const Me = {
     name: "player",
@@ -97,7 +97,7 @@ function moveBall() {
     });
     Ball.left += Ball.movingX;
     Ball.top += Ball.movingY;
-    Ball.updateElement();
+    updateElement(ball, Ball);
 }
 function startGame() {
     createObstacles();

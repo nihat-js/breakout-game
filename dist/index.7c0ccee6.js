@@ -3,6 +3,12 @@ const random = (max, min = 0)=>min + Math.floor(Math.random() * max);
 const ball = document.querySelector(".ball");
 const { log  } = console;
 const me = document.querySelector(".me");
+function getRight(el) {
+    return el.left + el.width;
+}
+function getBottom(el) {
+    return el.top + el.height;
+}
 const Ball = {
     width: 40,
     height: 40,
